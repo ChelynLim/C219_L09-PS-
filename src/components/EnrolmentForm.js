@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const diplomas = [
+  'Diploma in Information Technology',
+  'Diploma in Cybersecurity & Digital Forensics',
+  'Diploma in Enterprise Cloud Computing & Management',
+  'Diploma in Financial Technology',
+  'Common ICT Programme',
+];
 
 export default function EnrolmentForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    course: '',
+    diploma: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,10 +29,13 @@ export default function EnrolmentForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+    setTimeout(() => {
+      navigate('/');
+    }, 3000); // Redirect after 3 seconds
   };
 
   if (submitted) {
-    return <div className="container">Thank you for your interest, {formData.name}!</div>;
+    return <div className="container">Thank you for your interest, {formData.name}! You will be redirected to the homepage shortly.</div>;
   }
 
   return (
@@ -38,8 +51,13 @@ export default function EnrolmentForm() {
           <input type="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
         <div>
-          <label>Course:</label>
-          <input type="text" name="course" value={formData.course} onChange={handleChange} required />
+          <label>Diploma:</label>
+          <select name="diploma" value={formData.diploma} onChange={handleChange} required>
+            <option value="" disabled>Select a diploma</option>
+            {diplomas.map((diploma, index) => (
+              <option key={index} value={diploma}>{diploma}</option>
+            ))}
+          </select>
         </div>
         <button type="submit">Submit</button>
       </form>
