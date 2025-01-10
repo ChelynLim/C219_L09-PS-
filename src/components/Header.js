@@ -19,8 +19,8 @@ export default function Header() {
         <NavLink to="/" className={getClass}>
           Home
         </NavLink>
-        <NavLink to="/about" className={getClass}>
-          About
+        <NavLink to="/register" className={getClass}>
+          Register
         </NavLink>
         <NavLink to="/diplomas" className={getClass}>
           Diplomas
