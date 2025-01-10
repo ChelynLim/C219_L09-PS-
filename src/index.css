@@ -98,6 +98,29 @@ button:hover {
   background: #0056b3;
 }
 
+.search-bar {
+  margin: 2rem 0;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1.6rem;
+}
+
+.faq-list h2 {
+  cursor: pointer;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq-list p {
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;
